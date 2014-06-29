@@ -21,13 +21,6 @@ public class TimelineActivity extends FragmentActivity {
 		setContentView(R.layout.activity_timeline);
 
 		setupTabs();
-////		lvTweets.setOnScrollListener(new EndlessScrollListener() {
-////			@Override
-////			public void onLoadMore(int page, int totalItemsCount) {
-////				long max_id = tweets.get(totalItemsCount - 1).getUid();
-////				customLoadMoreDataFromApi(max_id);
-////			}
-//		});
 
 	}
 
@@ -61,14 +54,6 @@ public class TimelineActivity extends FragmentActivity {
 		actionBar.addTab(tab2);
 	}
 	
-//	// Append more data into the adapter
-//	public void customLoadMoreDataFromApi(long max_id) {
-//		populateMoreTimeline(max_id);
-//	}
-
-	
-
-
 //	public void postTweet(String tweet) {
 //		client.postTweet((new JsonHttpResponseHandler() {
 //			@Override

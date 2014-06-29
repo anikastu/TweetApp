@@ -2,28 +2,28 @@ package com.codepath.apps.basictwitter.fragments;
 
 import java.util.ArrayList;
 
-import org.json.JSONArray;
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.codepath.apps.basictwitter.EndlessScrollListener;
 import com.codepath.apps.basictwitter.R;
 import com.codepath.apps.basictwitter.TweetArrayAdapter;
 import com.codepath.apps.basictwitter.TwitterClient;
 import com.codepath.apps.basictwitter.TwitterClientApp;
 import com.codepath.apps.basictwitter.models.Tweet;
-import com.loopj.android.http.JsonHttpResponseHandler;
 
-public class TweetsListFragment extends Fragment {
+abstract public class TweetsListFragment extends Fragment {
 	private ArrayList<Tweet> tweets;
 	private TweetArrayAdapter aTweets;
 	private ListView lvTweets;
 	protected TwitterClient client;
+
+	// Append more data into the adapter
+	abstract void customLoadMoreDataFromApi(long max_id);
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -42,6 +42,14 @@ public class TweetsListFragment extends Fragment {
 		lvTweets = (ListView) v.findViewById(R.id.lvTweets);
 		lvTweets.setAdapter(aTweets);
 
+		lvTweets.setOnScrollListener(new EndlessScrollListener() {
+			@Override
+			public void onLoadMore(int page, int totalItemsCount) {
+				long max_id = tweets.get(totalItemsCount - 1).getUid();
+				customLoadMoreDataFromApi(max_id);
+			}
+		});
+
 		// Return the layout view
 		return v;
 	}
@@ -49,10 +57,10 @@ public class TweetsListFragment extends Fragment {
 	public void clearAll() {
 		aTweets.clear();
 	}
-	
+
 	public void addAll(ArrayList<Tweet> tweets) {
 		aTweets.addAll(tweets);
 	}
-	
-	
+
+
 }

@@ -30,4 +30,19 @@ public class MentionsTimelineFragment extends TweetsListFragment {
 			}
 		});
 	}
+	
+	public void customLoadMoreDataFromApi(long max_id) {
+		client.getMoreMentionsTimeline(new JsonHttpResponseHandler() {
+			@Override
+			public void onSuccess(JSONArray json) {
+				addAll(Tweet.fromJSONArray(json));
+			}
+
+			@Override
+			public void onFailure(Throwable e, String s) {
+				Log.d("debug", e.toString());
+				Log.d("debug", s.toString());
+			}
+		}, max_id);
+	}
 }

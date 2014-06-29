@@ -32,7 +32,7 @@ public class HomeTimelineFragment extends TweetsListFragment {
 		});
 	}
 
-	public void populateMoreTimeline(long max_id) {
+	public void customLoadMoreDataFromApi(long max_id) {
 		client.getMoreTimeline(new JsonHttpResponseHandler() {
 			@Override
 			public void onSuccess(JSONArray json) {
@@ -46,5 +46,4 @@ public class HomeTimelineFragment extends TweetsListFragment {
 			}
 		}, max_id);
 	}
-
 }
