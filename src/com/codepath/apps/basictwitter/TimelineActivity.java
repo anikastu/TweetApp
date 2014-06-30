@@ -81,7 +81,7 @@ public class TimelineActivity extends FragmentActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	
+
 	public void onComposeAction(MenuItem mi) {
 		Intent composeIntent = new Intent(this, ComposeActivity.class);
 		startActivityForResult(composeIntent, REQUEST_CODE);
@@ -105,7 +105,6 @@ public class TimelineActivity extends FragmentActivity {
 	// Called by onResume that's called by on ActivityResult
 	@Override
 	protected void onPostResume() {
-		Log.d("VK", "Inside onPostResume");
 
 		super.onPostResume();
 		if (composeIntentHasResult == true) {
@@ -117,40 +116,25 @@ public class TimelineActivity extends FragmentActivity {
 
 	private void refreshTab() {
 
-		
-//		HomeTimelineFragment homeTimeLineFragment = (HomeTimelineFragment) getSupportFragmentManager()
-//				.findFragmentByTag("HomeTimelineFragment");
-//		Log.d("VK", "got fragment");
-//
-//		sft.detach(homeTimeLineFragment);
-//		sft.commit();
-//
-//		Log.d("VK", "detached");
-//		FragmentTransaction sft1 = getSupportFragmentManager()
+//		FragmentTransaction sft = getSupportFragmentManager()
 //				.beginTransaction();
-//		
-//		sft1.attach(homeTimeLineFragment);
-//		sft1.commit();
 //
-//		Log.d("VK", "attached");
-		// if (actionBar.getSelectedTab().getTag().toString()
-		// .equals("HomeTimelineFragment")) {
-		// HomeTimelineFragment homeTimeLineFragment = (HomeTimelineFragment)
-		// getSupportFragmentManager()
-		// .findFragmentByTag("HomeTimelineFragment");
-		//
-		// sft.detach(homeTimeLineFragment);
-		// sft.attach(homeTimeLineFragment);
-		// } else {
-		// MentionsTimelineFragment mentionsTimelineFragment =
-		// (MentionsTimelineFragment) getSupportFragmentManager()
-		// .findFragmentByTag("MentionsTimelineFragment");
-		// sft.detach(mentionsTimelineFragment);
-		// sft.attach(mentionsTimelineFragment);
-		// }
-		//sft.commit();
+//		if (actionBar.getSelectedTab().getTag().toString()
+//				.equals("HomeTimelineFragment")) {
+//			HomeTimelineFragment homeTimeLineFragment = (HomeTimelineFragment) getSupportFragmentManager()
+//					.findFragmentByTag("HomeTimelineFragment");
+//
+//			sft.detach(homeTimeLineFragment);
+//			sft.attach(homeTimeLineFragment);
+//		} else {
+//			MentionsTimelineFragment mentionsTimelineFragment = (MentionsTimelineFragment) getSupportFragmentManager()
+//					.findFragmentByTag("MentionsTimelineFragment");
+//			sft.detach(mentionsTimelineFragment);
+//			sft.attach(mentionsTimelineFragment);
+//		}
+//		sft.commit();
 	}
-	
+
 	public void onProfileView(MenuItem mi) {
 		Intent profileIntent = new Intent(this, ProfileActivity.class);
 		// Not required to pass the userId

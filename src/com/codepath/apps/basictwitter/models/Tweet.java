@@ -84,7 +84,11 @@ public class Tweet {
 			relativeDate = DateUtils.getRelativeTimeSpanString(dateMillis,
 					System.currentTimeMillis(), DateUtils.SECOND_IN_MILLIS).toString();
 			//Formatting "x minutes ago" to "xm"
-			//relativeDate = relativeDate.split(" ")[0] + relativeDate.split(" ")[1].charAt(0);
+			if (relativeDate.contains("ago")) {
+				relativeDate = relativeDate.split(" ")[0] + relativeDate.split(" ")[1].charAt(0);
+			} else if (relativeDate.equals("Yesterday")) {
+				relativeDate = "1d";
+			}
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
