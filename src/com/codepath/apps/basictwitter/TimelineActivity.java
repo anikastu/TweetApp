@@ -1,24 +1,16 @@
 package com.codepath.apps.basictwitter;
 
-import org.json.JSONObject;
-
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.codepath.apps.basictwitter.fragments.HomeTimelineFragment;
 import com.codepath.apps.basictwitter.fragments.MentionsTimelineFragment;
-import com.codepath.apps.basictwitter.fragments.UserTimelineFragment;
 import com.codepath.apps.basictwitter.listeners.FragmentTabListener;
-import com.codepath.apps.basictwitter.models.User;
-import com.loopj.android.http.JsonHttpResponseHandler;
 
 public class TimelineActivity extends FragmentActivity {
 	ActionBar actionBar;
@@ -115,23 +107,13 @@ public class TimelineActivity extends FragmentActivity {
 	}
 
 	private void refreshTab() {
-
-		FragmentTransaction sft = getSupportFragmentManager()
-				.beginTransaction();
-
-		if (actionBar.getSelectedTab().getTag().toString()
-				.equals("HomeTimelineFragment")) {
-			HomeTimelineFragment homeTimeLineFragment = (HomeTimelineFragment) getSupportFragmentManager()
-					.findFragmentByTag("HomeTimelineFragment");
-			sft.detach(homeTimeLineFragment);
-			sft.attach(homeTimeLineFragment);
-		} else {
-			MentionsTimelineFragment mentionsTimelineFragment = (MentionsTimelineFragment) getSupportFragmentManager()
-					.findFragmentByTag("MentionsTimelineFragment");
-			sft.detach(mentionsTimelineFragment);
-			sft.attach(mentionsTimelineFragment);
-		}
-		sft.commit();
+		getSupportFragmentManager().executePendingTransactions();
+		HomeTimelineFragment homeTimeLineFragment = (HomeTimelineFragment) getSupportFragmentManager()
+				.findFragmentByTag("HomeTimelineFragment");
+		homeTimeLineFragment.populateTimeline();
+		MentionsTimelineFragment mentionsTimelineFragment = (MentionsTimelineFragment) getSupportFragmentManager()
+				.findFragmentByTag("MentionsTimelineFragment");
+		mentionsTimelineFragment.populateMentionsTimeline();
 	}
 
 	public void onProfileView(MenuItem mi) {

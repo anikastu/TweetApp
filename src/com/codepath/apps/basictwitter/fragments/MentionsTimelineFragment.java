@@ -2,11 +2,12 @@ package com.codepath.apps.basictwitter.fragments;
 
 import org.json.JSONArray;
 
-import com.codepath.apps.basictwitter.models.Tweet;
-import com.loopj.android.http.JsonHttpResponseHandler;
-
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
+
+import com.codepath.apps.basictwitter.models.Tweet;
+import com.loopj.android.http.JsonHttpResponseHandler;
 
 public class MentionsTimelineFragment extends TweetsListFragment {
 	@Override
