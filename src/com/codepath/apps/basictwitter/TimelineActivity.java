@@ -91,13 +91,11 @@ public class TimelineActivity extends FragmentActivity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode,
 			Intent composeIntent) {
-		Toast.makeText(this, "onActivityResult", Toast.LENGTH_LONG).show();
 		Log.d("VK", "Inside onActivityResult");
 
 		// REQUEST_CODE is defined above
 		if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
 			// Postpone doing Fragment Transactions
-			Log.d("VK", "Setting compostResult to TRUE");
 			composeIntentHasResult = true;
 		}
 	}
@@ -153,7 +151,7 @@ public class TimelineActivity extends FragmentActivity {
 	
 	public void onProfileView(MenuItem mi) {
 		Intent profileIntent = new Intent(this, ProfileActivity.class);
-		profileIntent.putExtra("userId", 764976505);
+		profileIntent.putExtra("userId", (long) 764976505);
 		startActivity(profileIntent);
 	}
 }

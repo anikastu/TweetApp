@@ -3,12 +3,16 @@ package com.codepath.apps.basictwitter;
 import java.util.List;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.codepath.apps.basictwitter.models.Tweet;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -33,14 +37,15 @@ public class TweetArrayAdapter extends ArrayAdapter<Tweet> {
 		} else {
 			v = convertView;
 		}
-		
+
 		// Find the views within template
 		ImageView ivProfileImage = (ImageView) v
 				.findViewById(R.id.ivProfileImage);
 		TextView tvUserName = (TextView) v.findViewById(R.id.tvUserName);
 		TextView tvBody = (TextView) v.findViewById(R.id.tvBody);
-		TextView tvRelativeTime = (TextView) v.findViewById(R.id.tvRelativeTime);
-		
+		TextView tvRelativeTime = (TextView) v
+				.findViewById(R.id.tvRelativeTime);
+
 		ivProfileImage.setImageResource(android.R.color.transparent);
 		ImageLoader imageLoader = ImageLoader.getInstance();
 
@@ -50,6 +55,20 @@ public class TweetArrayAdapter extends ArrayAdapter<Tweet> {
 		tvUserName.setText(tweet.getUser().getScreenName());
 		tvBody.setText(tweet.getBody());
 		tvRelativeTime.setText(tweet.getRelativeTime());
+
+		// Save the userId in the imageView tag
+
+		ivProfileImage.setTag(tweet.getUser().getUid());
+		ivProfileImage.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				Intent profileIntent = new Intent(getContext(),
+						ProfileActivity.class);
+				profileIntent.putExtra("userId", (long) v.getTag());
+				getContext().startActivity(profileIntent);
+			}
+		});
 
 		// Return the completed view to render on screen
 		return v;
