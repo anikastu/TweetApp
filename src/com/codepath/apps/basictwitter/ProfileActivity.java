@@ -24,8 +24,9 @@ public class ProfileActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_profile);
-		userId = getIntent().getLongExtra("userId", 0);
 		loadProfileInfo();
+		// userId==0 implies the main User
+		userId = getIntent().getLongExtra("userId", 0);
 		loadAllFragments();
 	}
 
@@ -41,8 +42,13 @@ public class ProfileActivity extends FragmentActivity {
 				new JsonHttpResponseHandler() {
 					@Override
 					public void onSuccess(JSONObject json) {
-						User u = User.fromJSON(json);
-						getActionBar().setTitle("@" + u.getScreenName());
+						User mainUser = User.fromJSON(json);
+						getActionBar().setTitle("@" + mainUser.getScreenName());
+					}
+
+					@Override
+					public void onFailure(Throwable e) {
+						e.printStackTrace();
 					}
 				});
 	}

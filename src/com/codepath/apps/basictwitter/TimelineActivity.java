@@ -1,5 +1,7 @@
 package com.codepath.apps.basictwitter;
 
+import org.json.JSONObject;
+
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.content.Intent;
@@ -15,6 +17,8 @@ import com.codepath.apps.basictwitter.fragments.HomeTimelineFragment;
 import com.codepath.apps.basictwitter.fragments.MentionsTimelineFragment;
 import com.codepath.apps.basictwitter.fragments.UserTimelineFragment;
 import com.codepath.apps.basictwitter.listeners.FragmentTabListener;
+import com.codepath.apps.basictwitter.models.User;
+import com.loopj.android.http.JsonHttpResponseHandler;
 
 public class TimelineActivity extends FragmentActivity {
 	ActionBar actionBar;
@@ -77,7 +81,7 @@ public class TimelineActivity extends FragmentActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-
+	
 	public void onComposeAction(MenuItem mi) {
 		Intent composeIntent = new Intent(this, ComposeActivity.class);
 		startActivityForResult(composeIntent, REQUEST_CODE);
@@ -91,8 +95,6 @@ public class TimelineActivity extends FragmentActivity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode,
 			Intent composeIntent) {
-		Log.d("VK", "Inside onActivityResult");
-
 		// REQUEST_CODE is defined above
 		if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
 			// Postpone doing Fragment Transactions
@@ -151,7 +153,7 @@ public class TimelineActivity extends FragmentActivity {
 	
 	public void onProfileView(MenuItem mi) {
 		Intent profileIntent = new Intent(this, ProfileActivity.class);
-		profileIntent.putExtra("userId", (long) 764976505);
+		// Not required to pass the userId
 		startActivity(profileIntent);
 	}
 }

@@ -41,8 +41,18 @@ public class UserTimelineFragment extends TweetsListFragment {
 	
 	@Override
 	void customLoadMoreDataFromApi(long max_id) {
-		// TODO Auto-generated method stub
+		client.getMoreUserTimeline(new JsonHttpResponseHandler() {
+			@Override
+			public void onSuccess(JSONArray json) {
+				addAll(Tweet.fromJSONArray(json));
+			}
 
+			@Override
+			public void onFailure(Throwable e, String s) {
+				Log.d("debug", e.toString());
+				Log.d("debug", s.toString());
+			}
+		}, userId, max_id);
 	}
 
 }
