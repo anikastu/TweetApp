@@ -116,23 +116,22 @@ public class TimelineActivity extends FragmentActivity {
 
 	private void refreshTab() {
 
-//		FragmentTransaction sft = getSupportFragmentManager()
-//				.beginTransaction();
-//
-//		if (actionBar.getSelectedTab().getTag().toString()
-//				.equals("HomeTimelineFragment")) {
-//			HomeTimelineFragment homeTimeLineFragment = (HomeTimelineFragment) getSupportFragmentManager()
-//					.findFragmentByTag("HomeTimelineFragment");
-//
-//			sft.detach(homeTimeLineFragment);
-//			sft.attach(homeTimeLineFragment);
-//		} else {
-//			MentionsTimelineFragment mentionsTimelineFragment = (MentionsTimelineFragment) getSupportFragmentManager()
-//					.findFragmentByTag("MentionsTimelineFragment");
-//			sft.detach(mentionsTimelineFragment);
-//			sft.attach(mentionsTimelineFragment);
-//		}
-//		sft.commit();
+		FragmentTransaction sft = getSupportFragmentManager()
+				.beginTransaction();
+
+		if (actionBar.getSelectedTab().getTag().toString()
+				.equals("HomeTimelineFragment")) {
+			HomeTimelineFragment homeTimeLineFragment = (HomeTimelineFragment) getSupportFragmentManager()
+					.findFragmentByTag("HomeTimelineFragment");
+			sft.detach(homeTimeLineFragment);
+			sft.attach(homeTimeLineFragment);
+		} else {
+			MentionsTimelineFragment mentionsTimelineFragment = (MentionsTimelineFragment) getSupportFragmentManager()
+					.findFragmentByTag("MentionsTimelineFragment");
+			sft.detach(mentionsTimelineFragment);
+			sft.attach(mentionsTimelineFragment);
+		}
+		sft.commit();
 	}
 
 	public void onProfileView(MenuItem mi) {

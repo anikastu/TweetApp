@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.codepath.apps.basictwitter.fragments.ComposeFragment;
 import com.codepath.apps.basictwitter.fragments.ComposeFragment.onTweetPostedListener;
