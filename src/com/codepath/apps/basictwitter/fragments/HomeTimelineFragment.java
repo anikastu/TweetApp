@@ -2,9 +2,11 @@ package com.codepath.apps.basictwitter.fragments;
 
 import org.json.JSONArray;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.codepath.apps.basictwitter.fragments.ComposeFragment.onTweetPostedListener;
 import com.codepath.apps.basictwitter.models.Tweet;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -46,4 +48,6 @@ public class HomeTimelineFragment extends TweetsListFragment {
 			}
 		}, max_id);
 	}
+	
+	
 }
