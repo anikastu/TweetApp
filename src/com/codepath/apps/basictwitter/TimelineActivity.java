@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.codepath.apps.basictwitter.fragments.HomeTimelineFragment;
 import com.codepath.apps.basictwitter.fragments.MentionsTimelineFragment;
+import com.codepath.apps.basictwitter.fragments.UserTimelineFragment;
 import com.codepath.apps.basictwitter.listeners.FragmentTabListener;
 
 public class TimelineActivity extends FragmentActivity {
@@ -152,6 +153,7 @@ public class TimelineActivity extends FragmentActivity {
 	
 	public void onProfileView(MenuItem mi) {
 		Intent profileIntent = new Intent(this, ProfileActivity.class);
+		profileIntent.putExtra("userId", 764976505);
 		startActivity(profileIntent);
 	}
 }
