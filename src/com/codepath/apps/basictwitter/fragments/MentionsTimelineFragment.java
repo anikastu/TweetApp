@@ -15,23 +15,27 @@ public class MentionsTimelineFragment extends TweetsListFragment {
 		super.onCreate(savedInstanceState);
 		populateMentionsTimeline();
 	}
-	
+
 	public void populateMentionsTimeline() {
+
 		client.getMentionsTimeline(new JsonHttpResponseHandler() {
 			@Override
 			public void onSuccess(JSONArray json) {
+				Toast.makeText(getActivity(), "Mentions-SUCCESS", Toast.LENGTH_LONG).show();
 				clearAll();
 				addAll(Tweet.fromJSONArray(json));
 			}
 
 			@Override
 			public void onFailure(Throwable e, String s) {
+				Toast.makeText(getActivity(), "Mentions-FAILURE", Toast.LENGTH_LONG).show();
+
 				Log.d("debug", e.toString());
 				Log.d("debug", s.toString());
 			}
 		});
 	}
-	
+
 	public void customLoadMoreDataFromApi(long max_id) {
 		client.getMoreMentionsTimeline(new JsonHttpResponseHandler() {
 			@Override

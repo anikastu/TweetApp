@@ -4,12 +4,9 @@ import org.scribe.builder.api.Api;
 import org.scribe.builder.api.TwitterApi;
 
 import android.content.Context;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.codepath.oauth.OAuthBaseClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 /*
@@ -118,7 +115,7 @@ public class TwitterClient extends OAuthBaseClient {
 	}
 
 	public void getUserDetails(AsyncHttpResponseHandler handler, long user_id) {
-		if (user_id == 0) {			
+		if (user_id == 0) {
 			String apiUrl = getApiUrl("account/verify_credentials.json");
 			client.get(apiUrl, handler);
 		} else {

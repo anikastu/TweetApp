@@ -4,7 +4,6 @@ import org.json.JSONArray;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.codepath.apps.basictwitter.models.Tweet;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -12,17 +11,17 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 public class UserTimelineFragment extends TweetsListFragment {
 
 	private long userId;
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		populateUserTimeline();
 	}
-	
+
 	public void setUserId(long id) {
 		this.userId = id;
 	}
-	
+
 	public void populateUserTimeline() {
 		client.getUserTimeline(new JsonHttpResponseHandler() {
 			@Override
@@ -38,7 +37,7 @@ public class UserTimelineFragment extends TweetsListFragment {
 			}
 		}, userId);
 	}
-	
+
 	@Override
 	void customLoadMoreDataFromApi(long max_id) {
 		client.getMoreUserTimeline(new JsonHttpResponseHandler() {

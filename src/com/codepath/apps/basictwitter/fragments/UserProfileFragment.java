@@ -2,12 +2,6 @@ package com.codepath.apps.basictwitter.fragments;
 
 import org.json.JSONObject;
 
-import com.codepath.apps.basictwitter.R;
-import com.codepath.apps.basictwitter.TwitterClientApp;
-import com.codepath.apps.basictwitter.models.User;
-import com.loopj.android.http.JsonHttpResponseHandler;
-import com.nostra13.universalimageloader.core.ImageLoader;
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -16,12 +10,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.codepath.apps.basictwitter.R;
+import com.codepath.apps.basictwitter.TwitterClientApp;
+import com.codepath.apps.basictwitter.models.User;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class UserProfileFragment extends Fragment {
 
 	private long userId;
-	
+
 	private ImageView ivProfileImage;
 	private TextView tvName;
 	private TextView tvTagline;
@@ -57,8 +56,7 @@ public class UserProfileFragment extends Fragment {
 						User user = User.fromJSON(json);
 						String profileImageUrl = user.getProfileImageUrl();
 
-						ivProfileImage
-								.setImageResource(android.R.color.transparent);
+						ivProfileImage.setImageResource(android.R.color.transparent);
 						ImageLoader imageLoader = ImageLoader.getInstance();
 						imageLoader.displayImage(profileImageUrl,
 								ivProfileImage);
@@ -70,6 +68,7 @@ public class UserProfileFragment extends Fragment {
 						tvFollowing.setText(user.getCountFriends()
 								+ " Following");
 					}
+
 					@Override
 					public void onFailure(Throwable e, String s) {
 						Log.d("debug", e.toString());
@@ -77,7 +76,7 @@ public class UserProfileFragment extends Fragment {
 					}
 				}, userId);
 	}
-	
+
 	public void setUserId(long id) {
 		this.userId = id;
 	}

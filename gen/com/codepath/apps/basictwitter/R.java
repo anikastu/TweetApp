@@ -22,69 +22,69 @@ public final class R {
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static int activity_horizontal_margin=0x7f040000;
-        public static int activity_vertical_margin=0x7f040001;
+        public static final int activity_horizontal_margin=0x7f040000;
+        public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static int ic_compose=0x7f020000;
-        public static int ic_home=0x7f020001;
-        public static int ic_launcher=0x7f020002;
-        public static int ic_mentions=0x7f020003;
-        public static int ic_profile=0x7f020004;
-        public static int ic_tweet_label=0x7f020005;
+        public static final int ic_compose=0x7f020000;
+        public static final int ic_home=0x7f020001;
+        public static final int ic_launcher=0x7f020002;
+        public static final int ic_mentions=0x7f020003;
+        public static final int ic_profile=0x7f020004;
+        public static final int ic_tweet_label=0x7f020005;
     }
     public static final class id {
-        public static int action_settings=0x7f080013;
-        public static int etComposeTweet=0x7f080007;
-        public static int flContainer=0x7f080003;
-        public static int flUserProfileContainer=0x7f080001;
-        public static int flUserTimelineContainer=0x7f080002;
-        public static int fragment_compose=0x7f080000;
-        public static int icCompose=0x7f080015;
-        public static int icProfile=0x7f080016;
-        public static int icTweet=0x7f080014;
-        public static int ivProfileImage=0x7f080004;
-        public static int llCounts=0x7f08000e;
-        public static int lvTweets=0x7f08000a;
-        public static int rlHeader=0x7f08000b;
-        public static int tvBody=0x7f080011;
-        public static int tvFollowers=0x7f08000f;
-        public static int tvFollowing=0x7f080010;
-        public static int tvLeft=0x7f080008;
-        public static int tvName=0x7f08000c;
-        public static int tvNumCharsLeft=0x7f080009;
-        public static int tvRelativeTime=0x7f080012;
-        public static int tvTagline=0x7f08000d;
-        public static int tvUserHandle=0x7f080006;
-        public static int tvUserName=0x7f080005;
+        public static final int action_settings=0x7f080013;
+        public static final int etComposeTweet=0x7f080007;
+        public static final int flContainer=0x7f080003;
+        public static final int flUserProfileContainer=0x7f080001;
+        public static final int flUserTimelineContainer=0x7f080002;
+        public static final int fragment_compose=0x7f080000;
+        public static final int icCompose=0x7f080015;
+        public static final int icProfile=0x7f080016;
+        public static final int icTweet=0x7f080014;
+        public static final int ivProfileImage=0x7f080004;
+        public static final int llCounts=0x7f08000e;
+        public static final int lvTweets=0x7f08000a;
+        public static final int rlHeader=0x7f08000b;
+        public static final int tvBody=0x7f080011;
+        public static final int tvFollowers=0x7f08000f;
+        public static final int tvFollowing=0x7f080010;
+        public static final int tvLeft=0x7f080008;
+        public static final int tvName=0x7f08000c;
+        public static final int tvNumCharsLeft=0x7f080009;
+        public static final int tvRelativeTime=0x7f080012;
+        public static final int tvTagline=0x7f08000d;
+        public static final int tvUserHandle=0x7f080006;
+        public static final int tvUserName=0x7f080005;
     }
     public static final class layout {
-        public static int activity_compose=0x7f030000;
-        public static int activity_login=0x7f030001;
-        public static int activity_profile=0x7f030002;
-        public static int activity_timeline=0x7f030003;
-        public static int fragment_compose=0x7f030004;
-        public static int fragment_tweets_list=0x7f030005;
-        public static int fragment_user_profile=0x7f030006;
-        public static int tweet_item=0x7f030007;
+        public static final int activity_compose=0x7f030000;
+        public static final int activity_login=0x7f030001;
+        public static final int activity_profile=0x7f030002;
+        public static final int activity_timeline=0x7f030003;
+        public static final int fragment_compose=0x7f030004;
+        public static final int fragment_tweets_list=0x7f030005;
+        public static final int fragment_user_profile=0x7f030006;
+        public static final int tweet_item=0x7f030007;
     }
     public static final class menu {
-        public static int compose=0x7f070000;
-        public static int compose_menu=0x7f070001;
-        public static int login=0x7f070002;
-        public static int photos=0x7f070003;
-        public static int profile=0x7f070004;
-        public static int timeline=0x7f070005;
-        public static int timeline_menu=0x7f070006;
+        public static final int compose=0x7f070000;
+        public static final int compose_menu=0x7f070001;
+        public static final int login=0x7f070002;
+        public static final int photos=0x7f070003;
+        public static final int profile=0x7f070004;
+        public static final int timeline=0x7f070005;
+        public static final int timeline_menu=0x7f070006;
     }
     public static final class string {
-        public static int action_settings=0x7f050004;
-        public static int app_name=0x7f050000;
-        public static int hello_world=0x7f050006;
-        public static int login_label=0x7f050001;
-        public static int title_activity_compose=0x7f050003;
-        public static int title_activity_profile=0x7f050005;
-        public static int title_activity_timeline=0x7f050002;
+        public static final int action_settings=0x7f050004;
+        public static final int app_name=0x7f050000;
+        public static final int hello_world=0x7f050006;
+        public static final int login_label=0x7f050001;
+        public static final int title_activity_compose=0x7f050003;
+        public static final int title_activity_profile=0x7f050005;
+        public static final int title_activity_timeline=0x7f050002;
     }
     public static final class style {
         /** 
@@ -108,10 +108,10 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static int AppBaseTheme=0x7f060000;
+        public static final int AppBaseTheme=0x7f060000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static int AppTheme=0x7f060001;
+        public static final int AppTheme=0x7f060001;
     }
 }
