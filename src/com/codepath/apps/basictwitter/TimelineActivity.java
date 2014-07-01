@@ -100,20 +100,24 @@ public class TimelineActivity extends FragmentActivity {
 
 		super.onPostResume();
 		if (composeIntentHasResult == true) {
-			refreshTab();
+			refreshFragmentViews();
 		}
 		// Reset the boolean flag back to false for next time.
 		composeIntentHasResult = false;
 	}
 
-	private void refreshTab() {
+	private void refreshFragmentViews() {
 		getSupportFragmentManager().executePendingTransactions();
 		HomeTimelineFragment homeTimeLineFragment = (HomeTimelineFragment) getSupportFragmentManager()
-				.findFragmentByTag("HomeTimelineFragment");
-		homeTimeLineFragment.populateTimeline();
+				.findFragmentByTag("home");
+		if (homeTimeLineFragment != null) {
+			homeTimeLineFragment.populateTimeline();
+		}
 		MentionsTimelineFragment mentionsTimelineFragment = (MentionsTimelineFragment) getSupportFragmentManager()
-				.findFragmentByTag("MentionsTimelineFragment");
-		mentionsTimelineFragment.populateMentionsTimeline();
+				.findFragmentByTag("mentions");
+		if (mentionsTimelineFragment != null) {
+			mentionsTimelineFragment.populateMentionsTimeline();
+		}
 	}
 
 	public void onProfileView(MenuItem mi) {

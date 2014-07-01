@@ -49,9 +49,4 @@ public class HomeTimelineFragment extends TweetsListFragment {
 			}
 		}, max_id);
 	}
-	
-	public void showToast() {
-		Toast.makeText(getActivity(), "Toasting from Fragment", Toast.LENGTH_LONG).show();
-	}
-	
 }
